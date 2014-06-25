@@ -1,0 +1,18 @@
+<?php
+
+/* Allow ctools to find our panel pane plugins */
+function example_panes_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'ctools' && $plugin == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
+
+function example_panes_theme($existing, $type, $theme, $path) {
+  return array(
+    'example_footer' => array(
+      'path' => $path . '/templates',
+      'template' => 'example-footer',
+      'variables' => array('menu' => array()),
+    ),
+  );
+}
